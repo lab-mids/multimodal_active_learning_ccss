@@ -142,9 +142,54 @@ run_active_learning_experiment(
     plot_final_predictions_indexed_func=plot_final_predictions_indexed
 )
 ```
+
+```python
+run_active_learning_experiment(
+    datasets=datasets,
+    init_json_dir=DATA_CLEAN_InIT_CHOICES,
+    output_base_path=SAWEI_PATH,
+    generate_full_merged_strategies=generate_full_merged_strategies,
+    loop_function=loop,
+    ResistanceClass=Resistance,
+    GPModelClass=GPSawei,
+    plot_final_predictions_indexed_func=plot_final_predictions_indexed
+)
+```
 ### Ploting_MAE
 It plots the mean absolut error of the paper and the selected initial points (marked with red Xs) overlaid on the wafer grid.
 
+- Visualize initial points selected by different strategies
+```python
+base_dir = MAE_PLOT
+filename = "initialization_strategies_10374.pdf"
+save_path = os.path.join(base_dir, filename)
+
+plot_initialization_strategies(csv_path=DATASET_10374_Ir_Pd_Pt_Rh_Ru,
+    all_init_strategies=init_choices, output_path=save_path)
+
+
+```
+- Compare MAE of mixed vs. base strategies
+```python
+base_dir = MAE_PLOT
+filename = "Top5Similarity-10311_uncertainty.pdf"
+save_path = os.path.join(base_dir, filename)
+
+df = pd.read_csv(MAE_PRIORS_10311)
+
+
+plot_all_base_and_mixed_strategies(df, main_strategy="Top5Similarity", save_path=save_path ,base_strategies=base_strategies)
+```
+- Plot MAE curves across datasets for a given strategy
+```python
+plot_strategy_across_datasets(
+    strategy="Centroids_saturation_low",
+    dataset_paths=dataset_paths,
+    dataset_labels=dataset_labels,
+    save_path=save_path,
+    measurement_uncertainty=0.005,
+)
+```
 ### heatmaps_plots
 This notebook calculates and plots all the heatmaps of the paper and the summary of the acquisition functions.
 
