@@ -3,7 +3,7 @@ Multi-modal cold start active learning for compositionally complex solid solutio
 This work addresses the cold-start problem in active learning (AL) for experimental materials science by leveraging multimodal priors—numerical (EDX), visual (wafer images), and textual (literature-derived embeddings)—to select diverse, informative initial measurement points. The goal is to train accurate surrogate models (Gaussian Processes) for predicting functional properties (e.g., resistance) with minimal costly measurements.
 
 
-## Raw Data Description
+## Raw Data Description (under data/)
 
 ###  `resistance_raw` folder has subfolders for each materials library used in the study and in inside the subfolders are:
 #### 1. `Resistance` Data
@@ -30,12 +30,12 @@ This work addresses the cold-start problem in active learning (AL) for experimen
 - **Format**: `.JPG` images
 
 #### 4. `EDX_Similarity`
-- ** Source: The similarity calculated using Matnexus for the composition and the word "resistance" using the Iterative_Corpus_Refinement.ipynb from the folder "matnexus/Example/Iterative_Corpus_Refinement.ipynb"
+- **Source**: The similarity calculated using Matnexus for the composition and the word "resistance" using the Iterative_Corpus_Refinement.ipynb from the folder "matnexus/Example/Iterative_Corpus_Refinement.ipynb"
 - **Format**: CSV file
 ---
 Beside the subfolders for each materials library, there are the EDX_min_max_summary, which has the index of the measurement points of the wafer for the maximum and minimum compositions, Top5_Similarity_Summary which has the top 5 similarity indices for each material library; and the centroids_mapped_with_indices, which has the centroids resulting from clustering the photographs of the wafer for each materials library.
 
-## clean Data Description
+## clean Data Description (under data/)
 ###  `resistance_cleaned_files` folder has all the cleaned resistance files for all the materials libraries. 
 - **Format**: CSV file
 - **Contents**:
@@ -52,6 +52,9 @@ Implements a simple Gaussian Process model using uncertainty sampling to select 
 Implements the SAWEI model (Self-Adjusting Weighted Expected Improvement), which combines uncertainty and improvement.
 ### measurement_devices.py
 Simulates how resistance measurements are taken on the wafer. It manages feature extraction and returns measured values.
+### wafer_circle_clustering.py
+This script takes a wafer image, cleans the background, enhances contrast and saturation, and runs K-means clustering to highlight the most distinct regions.
+It then extracts the top 5 cluster centers as initial measurement points and saves them for use in the active learning pipeline.
 ### run_active_learning.py	
 This script is the core of the active learning pipeline described in our paper. It runs cold-start active learning experiments across different datasets and initialization strategies, using Gaussian Process models to iteratively select and predict resistance measurements on wafer data.
 What’s inside?
@@ -65,19 +68,7 @@ plot_final_predictions_indexed() – Plots predicted vs. true resistance values 
 
 run_active_learning_experiment() – Ties everything together: loads data, runs all strategies, saves results and plots.
 
-```python
-# From the analysis notebook, you can run it.
-run_active_learning_experiment(
-    datasets=datasets,
-    init_json_dir=DATA_CLEAN_InIT_CHOICES,
-    output_base_path=UNCERTAINTY_PATH,
-    generate_full_merged_strategies=generate_full_merged_strategies,
-    loop_function=loop,
-    ResistanceClass=Resistance,
-    GPModelClass=GPBasic,  
-    plot_final_predictions_indexed_func=plot_final_predictions_indexed
-)
-```
+
 ### compare_func_heatmaps.py
 This script analyzes and visualizes how much each mixed strategy improves or worsens the stopping iteration compared to its base strategy (e.g., "Top5Similarity+Random" vs. "Top5Similarity").
 
@@ -117,9 +108,22 @@ Random, LHS, K-Means, FPS, ODAL, K-Center
 All combined and saved to DATA_CLEAN_InIT_CHOICES as <folder>_indices.json.
 
 ### analysis 
-This notebook runs the active learning for the two acquisition functions, 
+This notebook runs the active learning for the two acquisition functions using the "run_active_learning.py", 
 Uncertainty-based acquisition using a standard GP model (GPBasic) and SAWEI (Similarity-Aware Expected Improvement) acquisition using a similarity-weighted GP model (GPSawei)
 
+```python
+
+run_active_learning_experiment(
+    datasets=datasets,
+    init_json_dir=DATA_CLEAN_InIT_CHOICES,
+    output_base_path=UNCERTAINTY_PATH,
+    generate_full_merged_strategies=generate_full_merged_strategies,
+    loop_function=loop,
+    ResistanceClass=Resistance,
+    GPModelClass=GPBasic,  
+    plot_final_predictions_indexed_func=plot_final_predictions_indexed
+)
+```
 ### Ploting
 It plots the mean absolut error of the paper and the selected initial points (marked with black Xs) overlaid on the wafer grid.
 
