@@ -45,6 +45,13 @@ Beside the subfolders for each materials library, there are the EDX_min_max_summ
 ###  `init_choices` folder has all the initial selection indices files for all the materials libraries. 
 
 ## Core Scripts (under scripts/)
+
+### gaussian_process_basic.py 
+Implements a simple Gaussian Process model using uncertainty sampling to select new points.
+### gaussian_process_sawei.py
+Implements the SAWEI model (Self-Adjusting Weighted Expected Improvement), which combines uncertainty and improvement.
+### measurement_devices.py
+Simulates how resistance measurements are taken on the wafer. It manages feature extraction and returns measured values.
 ### run_active_learning.py	
 This script is the core of the active learning pipeline described in our paper. It runs cold-start active learning experiments across different datasets and initialization strategies, using Gaussian Process models to iteratively select and predict resistance measurements on wafer data.
 What’s inside?
@@ -59,17 +66,35 @@ plot_final_predictions_indexed() – Plots predicted vs. true resistance values 
 run_active_learning_experiment() – Ties everything together: loads data, runs all strategies, saves results and plots.
 
 ```python
+# From the analysis notebook, you can run it.
 run_active_learning_experiment(
-    datasets=[],
-    init_json_dir="init_indices/",
-    output_base_path="results/",
+    datasets=datasets,
+    init_json_dir=DATA_CLEAN_InIT_CHOICES,
+    output_base_path=UNCERTAINTY_PATH,
     generate_full_merged_strategies=generate_full_merged_strategies,
     loop_function=loop,
     ResistanceClass=Resistance,
-    GPModelClass=GPSawei,
-    plot_final_predictions_indexed_func=plot_final_predictions_indexed,
+    GPModelClass=GPBasic,  
+    plot_final_predictions_indexed_func=plot_final_predictions_indexed
 )
 ```
+### compare_func_heatmaps.py
+This script analyzes and visualizes how much each mixed strategy improves or worsens the stopping iteration compared to its base strategy (e.g., "Top5Similarity+Random" vs. "Top5Similarity").
+
+What’s inside?
+analyze_stopping_iteration_differences()
+Loads results from all folders, compares stopping iterations of base vs. mixed strategies, and saves both
+
+plot_decreased_only_heatmap_sorted()
+Creates a heatmap showing which mixed strategies reduced the number of measurements needed (i.e., earlier stopping). Highlights only those that showed a meaningful improvement (e.g., saving over 50%)
+
+plot_heatmap_base_less_than_100()
+Focuses on strategies where the base strategy already stopped early (<100 iterations). Highlights only those that showed a meaningful improvement (e.g., saving over 20%)
+
+plot_strategy_comparison_summary()
+Combines results from both SAWEI and uncertainty-based acquisition to compare how each base strategy performs across acquisition functions.
+The output is a grouped bar chart with detailed change types (increased, decreased, no change) per strategy.
+
 ## Running the Code from the Notebook
 ### Image-Clustering
 This notebook performs clustering on wafer images (e.g. K-means) after preprocessing (contrast/saturation).
