@@ -207,10 +207,18 @@ analyze_stopping_iteration_differences(
 ```
 
 Heatmap that summarises the number of reduced measurements across all the datasets.
+
+Displays measurement reductions for all main (base) initialization techniques.
+.
+```python
+heatmap_path_base= os.path.join(summary_folder_Uncertainty, "uncertainty_base_heatmap.png")
+plot_heatmap_base_less_than_100(df_summary, heatmap_path_base )
+```
+
+Displays measurement reductions for all combined initialization techniques.
 ```python
 df_summary = pd.read_csv(csv_path)
 plot_decreased_only_heatmap_sorted(df_summary, heatmap_path)
 ```
-
 
 
