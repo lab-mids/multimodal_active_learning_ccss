@@ -192,6 +192,25 @@ plot_strategy_across_datasets(
 ```
 ### heatmaps_plots
 This notebook calculates and plots all the heatmaps of the paper and the summary of the acquisition functions.
+- To analyzes how early different strategies can confidently stop active learning and saves both the summary and visualization.
+
+```python
+csv_path = os.path.join(summary_folder_Uncertainty, "strategy_comparison_stopping_summary_uncertainty.csv")
+barplot_path = os.path.join(summary_folder_Uncertainty, "strategy_comparison_stopping_summary_uncertainty_plot.png")
+heatmap_path = os.path.join(summary_folder_Uncertainty, "uncertainty_heatmap.png")
+
+analyze_stopping_iteration_differences(
+    base_dir=UNCERTAINTY_PATH,
+    save_csv_path=csv_path,
+    save_plot_path=barplot_path
+)
+```
+
+Heatmap that summarises the number of reduced measurements across all the datasets.
+```python
+df_summary = pd.read_csv(csv_path)
+plot_decreased_only_heatmap_sorted(df_summary, heatmap_path)
+```
 
 
 
