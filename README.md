@@ -44,6 +44,9 @@ Beside the subfolders for each materials library, there are the EDX_min_max_summ
    - Resistance values
 ###  `init_choices` folder has all the initial selection indices files for all the materials libraries. 
 
+## Core Scripts (under scripts/)
+### run_active_learning.py	
+This script is the core of the active learning pipeline described in our paper. It runs cold-start active learning experiments across different datasets and initialization strategies, using Gaussian Process models to iteratively select and predict resistance measurements on wafer data.
 
 ## Running the Code from the Notebook
 ### Image-Clustering
