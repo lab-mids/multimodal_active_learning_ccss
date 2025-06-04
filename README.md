@@ -46,6 +46,21 @@ Beside the subfolders for each materials library, there are the EDX_min_max_summ
 it is a folder has all the initial selection indices files for all the materials libraries. 
 ###  `Results` 
 #### Compare_result/
+contains the heatmap visualizations for all acquisition functions, along with summary comparison plot. These results illustrate the effectiveness of each strategy in reducing the number of required measurements and improving prediction accuracy across the wafer surface.
+This folder contains subfolders for each material library dataset used in the uncertainty-based active learning experiments.
+
+Each subfolder includes:
+
+CSV files (*_final_predictions.csv): Final model predictions compared to the ground truth resistance values after completing the active learning loop.
+
+PNG files (*_indexed_predictions_plot.png): Indexed prediction plots visualizing model performance across the wafer surface.
+
+Excel summaries (mae_priors_results.xlsx, mae_priors_stopping_indices.xlsx): Record the Mean Absolute Error (MAE) progression over iterations and the stopping point for each strategy.
+
+Pickle file (mae_priors_all_results.pkl): Serialized object containing the complete experiment results, including MAE history, stopping iteration indices, and gradient stability information.
+
+These results reflect the performance of different initialization strategies under the uncertainty sampling acquisition function.
+#### Sawei/
 ## Core Scripts (under scripts/)
 
 ### gaussian_process_basic.py 
