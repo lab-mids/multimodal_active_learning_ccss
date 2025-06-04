@@ -55,6 +55,8 @@ Simulates how resistance measurements are taken on the wafer. It manages feature
 ### wafer_circle_clustering.py
 This script takes a wafer image, cleans the background, enhances contrast and saturation, and runs K-means clustering to highlight the most distinct regions.
 It then extracts the top 5 cluster centers as initial measurement points and saves them for use in the active learning pipeline.
+### map_centroids_to_wafer.py
+Maps cluster centroids onto a wafer image using stage coordinates from a CSV.
 ### run_active_learning.py	
 This script is the core of the active learning pipeline described in our paper. It runs cold-start active learning experiments across different datasets and initialization strategies, using Gaussian Process models to iteratively select and predict resistance measurements on wafer data.
 What’s inside?
@@ -85,6 +87,22 @@ Focuses on strategies where the base strategy already stopped early (<100 iterat
 plot_strategy_comparison_summary()
 Combines results from both SAWEI and uncertainty-based acquisition to compare how each base strategy performs across acquisition functions.
 The output is a grouped bar chart with detailed change types (increased, decreased, no change) per strategy.
+
+### plotting_MAE.py
+This script provides several plotting functions to visualize the performance of active learning strategies across material datasets.
+
+What’s inside?
+plot_strategy_across_datasets
+Plots a single strategy’s MAE curve across different datasets. It adds a measurement uncertainty line, and colors each dataset distinctly.
+
+plot_all_base_and_mixed_strategies
+Plots base strategies (e.g., Random, FPS) and their combinations with a main strategy (e.g., ODAL+Random) in one plot, using solid and dashed lines to distinguish them.
+
+plot_initialization_strategies
+Visualizes selected initial points for each strategy on a wafer grid, overlaying resistance values with color and marking chosen indices with red markers.
+
+
+
 
 ## Running the Code from the Notebook
 ### Image-Clustering
@@ -124,10 +142,10 @@ run_active_learning_experiment(
     plot_final_predictions_indexed_func=plot_final_predictions_indexed
 )
 ```
-### Ploting
-It plots the mean absolut error of the paper and the selected initial points (marked with black Xs) overlaid on the wafer grid.
+### Ploting_MAE
+It plots the mean absolut error of the paper and the selected initial points (marked with red Xs) overlaid on the wafer grid.
 
-### compare
+### heatmaps_plots
 This notebook calculates and plots all the heatmaps of the paper and the summary of the acquisition functions.
 
 
