@@ -47,8 +47,9 @@ it is a folder has all the initial selection indices files for all the materials
 ###  `Results` 
 #### Compare_result/
 contains the heatmap visualizations for all acquisition functions, along with summary comparison plot. These results illustrate the effectiveness of each strategy in reducing the number of required measurements and improving prediction accuracy across the wafer surface.
-This folder contains subfolders for each material library dataset used in the uncertainty-based active learning experiments.
 
+#### Uncertainty/
+This folder contains subfolders for each material library dataset used in the uncertainty-based active learning experiments.
 Each subfolder includes:
 
 CSV files (*_final_predictions.csv): Final model predictions compared to the ground truth resistance values after completing the active learning loop.
