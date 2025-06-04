@@ -62,6 +62,16 @@ Pickle file (mae_priors_all_results.pkl): Serialized object containing the compl
 
 These results reflect the performance of different initialization strategies under the uncertainty sampling acquisition function.
 #### Sawei/
+This folder contains subfolders for each material library dataset used in the active learning experiments based on the SAWEI (Self-Adjusting Weighted Expected Improvement) acquisition function.
+Each subfolder includes:
+
+CSV files (*_final_predictions.csv): Final predicted resistance values compared to the ground truth after completing the active learning loop.
+
+PNG files (*_indexed_predictions_plot.png): Indexed prediction plots visualizing how well the model captures resistance trends across the wafer.
+
+Excel summaries (mae_priors_results.xlsx, mae_priors_stopping_indices.xlsx): Provide Mean Absolute Error (MAE) trends over iterations and indicate the stopping points for each initialization strategy.
+
+Pickle file (mae_priors_all_results.pkl): A serialized collection of full experimental results, including MAE history, stopping iterations, and gradient stabilization points.
 ## Core Scripts (under scripts/)
 
 ### gaussian_process_basic.py 
