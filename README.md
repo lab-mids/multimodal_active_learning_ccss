@@ -69,7 +69,7 @@ run_active_learning_experiment(
     GPModelClass=GPSawei,
     plot_final_predictions_indexed_func=plot_final_predictions_indexed,
 )
-
+---
 ## Running the Code from the Notebook
 ### Image-Clustering
 This notebook performs clustering on wafer images (e.g. K-means) after preprocessing (contrast/saturation).
