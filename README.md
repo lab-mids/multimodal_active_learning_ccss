@@ -47,6 +47,28 @@ Beside the subfolders for each materials library, there are the EDX_min_max_summ
 ## Core Scripts (under scripts/)
 ### run_active_learning.py	
 This script is the core of the active learning pipeline described in our paper. It runs cold-start active learning experiments across different datasets and initialization strategies, using Gaussian Process models to iteratively select and predict resistance measurements on wafer data.
+What’s inside?
+loop() – it is the function that trains the model, updates it with new points, and stops when predictions stabilize.
+
+select_initial_indices() – Picks initial points using methods like Random, LHS, K-Means, Farthest, ODAL, and K-Center.
+
+generate_full_merged_strategies() – Combines strategies (e.g., visual + composition) to test if mixing helps.
+
+plot_final_predictions_indexed() – Plots predicted vs. true resistance values for easy comparison.
+
+run_active_learning_experiment() – Ties everything together: loads data, runs all strategies, saves results and plots.
+
+```python
+run_active_learning_experiment(
+    datasets=[],
+    init_json_dir="init_indices/",
+    output_base_path="results/",
+    generate_full_merged_strategies=generate_full_merged_strategies,
+    loop_function=loop,
+    ResistanceClass=Resistance,
+    GPModelClass=GPSawei,
+    plot_final_predictions_indexed_func=plot_final_predictions_indexed,
+)
 
 ## Running the Code from the Notebook
 ### Image-Clustering
