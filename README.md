@@ -1,5 +1,5 @@
 # multimodal_active_learning_ccss
-Multi-modal cold start active learning for compositionally complex solid solutions
+Multi-modal cold start active learning for compositionally complex solid solutions.
 This work addresses the cold-start problem in active learning (AL) for experimental materials science by leveraging multimodal priors—numerical (EDX), visual (wafer images), and textual (literature-derived embeddings)—to select diverse, informative initial measurement points. The goal is to train accurate surrogate models (Gaussian Processes) for predicting functional properties (e.g., resistance) with minimal costly measurements.
 
 
