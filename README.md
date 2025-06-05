@@ -5,7 +5,8 @@ This work addresses the cold-start problem in active learning (AL) for experimen
 
 ## Raw Data Description (under data/)
 
-###  `resistance_raw` folder has subfolders for each materials library used in the study and in inside the subfolders are:
+###  `resistance_raw` 
+it is a folder has subfolders for each materials library used in the study and in inside the subfolders are:
 #### 1. `Resistance` Data
 
 - **Source**: Experimental electrical resistance measurements.
