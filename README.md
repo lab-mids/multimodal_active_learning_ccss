@@ -44,7 +44,7 @@ Beside the subfolders for each materials library, there are the EDX_min_max_summ
   - Wafer grid coordinates (`x`, `y`) and ID
   - Resistance values
 ###  `init_choices` 
-it is a folder has all the initial selection indices files for all the materials libraries. 
+It is a folder that has all the initial selection indices files for all the materials libraries. 
 ###  `Results` (under data/)
 #### Uncertainty/
 This folder contains subfolders for each material library dataset used in the uncertainty-based active learning experiments.
@@ -82,7 +82,7 @@ K-means clustering identifies the top 5 visually distinct regions.
 
 Centroid coordinates of these regions are saved as potential initial measurement points.
 
-Each folder includes cluster visualizations, centroid CSV/PKL files, and the cleaned wafer mask.
+Each folder includes cluster visualizations, centroid CSV files, and the cleaned wafer mask.
 #### Compare_result/
 contains the heatmap visualizations for all acquisition functions, along with summary comparison plot. These results illustrate the effectiveness of each strategy in reducing the number of required measurements and improving prediction accuracy across the wafer surface. The figuures 
 #### MAE_PLOT/
@@ -114,8 +114,7 @@ run_active_learning_experiment() – Ties everything together: loads data, runs 
 
 
 ### compare_func_heatmaps.py
-This script analyzes and visualizes how much each mixed strategy improves or worsens the stopping iteration compared to its base strategy (e.g., "Top5Similarity+Random" vs. "Top5Similarity").
-
+This script analyzes and visualizes how much each mixed strategy improves or worsens the stopping iteration compared to its base strategy (e.g., "Top 5 Similarity+Random" vs. "Top 5 Similarity"). Also, the summary of performance across all datasets of reduction, increase or no change once the strategy is paired.
 What’s inside?
 analyze_stopping_iteration_differences()
 Loads results from all folders, compares stopping iterations of base vs. mixed strategies, and saves both
