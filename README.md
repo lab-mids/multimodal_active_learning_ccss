@@ -41,8 +41,8 @@ Beside the subfolders for each materials library, there are the EDX_min_max_summ
 - **Format**: CSV file
 - **Contents**:
   - Elemental weight percentages (`Ag`, `Cu`, `Pt`, etc.)
-  - Mapping to stage coordinates (`x`, `y`) and ID
-   - Resistance values
+  - Wafer grid coordinates (`x`, `y`) and ID
+  - Resistance values
 ###  `init_choices` 
 it is a folder has all the initial selection indices files for all the materials libraries. 
 ###  `Results` (under data/)
