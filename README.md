@@ -45,10 +45,7 @@ Beside the subfolders for each materials library, there are the EDX_min_max_summ
    - Resistance values
 ###  `init_choices` 
 it is a folder has all the initial selection indices files for all the materials libraries. 
-###  `Results` 
-#### Compare_result/
-contains the heatmap visualizations for all acquisition functions, along with summary comparison plot. These results illustrate the effectiveness of each strategy in reducing the number of required measurements and improving prediction accuracy across the wafer surface.
-
+###  `Results` (under data/)
 #### Uncertainty/
 This folder contains subfolders for each material library dataset used in the uncertainty-based active learning experiments.
 Each subfolder includes:
@@ -57,7 +54,7 @@ CSV files (*_final_predictions.csv): Final model predictions compared to the gro
 
 PNG files (*_indexed_predictions_plot.png): Indexed prediction plots visualizing model performance across the wafer surface.
 
-Excel summaries (mae_priors_results.xlsx, mae_priors_stopping_indices.xlsx): Record the Mean Absolute Error (MAE) progression over iterations and the stopping point for each strategy.
+CSV summaries (mae_priors_results.csv, mae_priors_stopping_indices.csv): Record the Mean Absolute Error (MAE) progression over iterations and the stopping point for each strategy.
 
 Pickle file (mae_priors_all_results.pkl): Serialized object containing the complete experiment results, including MAE history, stopping iteration indices, and gradient stability information.
 
@@ -70,11 +67,27 @@ CSV files (*_final_predictions.csv): Final predicted resistance values compared 
 
 PNG files (*_indexed_predictions_plot.png): Indexed prediction plots visualizing how well the model captures resistance trends across the wafer.
 
-Excel summaries (mae_priors_results.xlsx, mae_priors_stopping_indices.xlsx): Provide Mean Absolute Error (MAE) trends over iterations and indicate the stopping points for each initialization strategy.
+csv summaries (mae_priors_results.csv, mae_priors_stopping_indices.csv): Provide Mean Absolute Error (MAE)  over iterations and indicate the stopping points for each initialization strategy.
 
 Pickle file (mae_priors_all_results.pkl): A serialized collection of full experimental results, including MAE history, stopping iterations, and gradient stabilization points.
-## Core Scripts (under scripts/)
 
+#### wafer_output_black/
+Contains processed wafer images for each material library. For each wafer:
+
+The background is removed using GrabCut and contour detection.
+
+Contrast and saturation are enhanced at multiple levels.
+
+K-means clustering identifies the top 5 visually distinct regions.
+
+Centroid coordinates of these regions are saved as potential initial measurement points.
+
+Each folder includes cluster visualizations, centroid CSV/PKL files, and the cleaned wafer mask.
+#### Compare_result/
+contains the heatmap visualizations for all acquisition functions, along with summary comparison plot. These results illustrate the effectiveness of each strategy in reducing the number of required measurements and improving prediction accuracy across the wafer surface. The figuures 
+#### MAE_PLOT/
+This folder has all the mean absolute error plots of the paper figures 6 and 9.
+## Core Scripts (under scripts/)
 ### gaussian_process_basic.py 
 Implements a simple Gaussian Process model using uncertainty sampling to select new points.
 ### gaussian_process_sawei.py
