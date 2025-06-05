@@ -93,7 +93,7 @@ contains the heatmap visualizations for all acquisition functions, along with su
 This folder has all the mean absolute error plots of the paper figures 6 and 9.
 
 ## matnexus/ (under matnexus/Example)
-The Example folder contains a notebook that uses text data—such as research abstracts—to identify material compositions most related to a target property (e.g., resistance). It trains a Word2Vec model to compute similarities between property terms and composition descriptors. The most relevant compositions are then selected as informed starting points for cold-start active learning.
+The Example folder contains a notebook (Top5_Similarity.ipynb) that uses text data—such as research abstracts—to identify material compositions most related to a target property (e.g., resistance). It trains a Word2Vec model to compute similarities between property terms and composition descriptors. The most relevant compositions are then selected as informed starting points for cold-start active learning.
 
 ## Core Scripts (under scripts/)
 ### gaussian_process_basic.py 
