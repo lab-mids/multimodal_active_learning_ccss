@@ -169,7 +169,7 @@ def plot_decreased_only_heatmap_sorted(comparison_df, save_path):
 
     # Compute column averages and filter
     column_means = heatmap_data.fillna(0).mean(axis=0)
-
+    # Approximately over 50% of the measurement points is 162.
     selected_columns = column_means[column_means > 162].sort_values(ascending=False).index
     heatmap_data = heatmap_data[selected_columns]
     
@@ -269,13 +269,13 @@ def plot_heatmap_base_less_than_100(comparison_df, save_path):
         aggfunc="mean"
     )
 
-    # Filter strategies with meaningful reduction (e.g., AbsDifference > 5)
+    # Filter strategies with meaningful reduction (e.g., AbsDifference > 75)
     column_means = heatmap_data.fillna(0).mean(axis=0)
 
     # Save all strategy means before filtering
     csv_path = os.path.join(os.path.dirname(save_path), "base_reduction_mean_ranking.csv")
     column_means.sort_values(ascending=False).to_csv(csv_path, header=["MeanReduction"])
-
+    # Approximately over 20% of the measurement points is 75.
     selected_columns = column_means[column_means > 75].sort_values(ascending=False).index
     heatmap_data = heatmap_data[selected_columns]
 

@@ -34,15 +34,6 @@ Ag_Au_Pd_Pt_Rh_RT_photo_0010275=os.path.join(Ag_Au_Pd_Pt_Rh_RT_0010275 , "001027
 Ag_Au_Pd_0010272=os.path.join(RESISTANCE_RAW, "0010272")
 Ag_Au_Pd_photo_0010272=os.path.join(Ag_Au_Pd_0010272 , "0010272_Ag-Au-Pd_on_15nm_Ta_photo.jpg")
 
-Ag_Au_0010271=os.path.join(RESISTANCE_RAW, "0010271")
-Ag_Au_photo_0010271=os.path.join(Ag_Au_0010271 , "0010271_Ag-Au_on_15nm_Ta_photo.jpg")
-
-Ag_Au_Pd_Pt_Ru_RT_0010268=os.path.join(RESISTANCE_RAW, "0010268")
-Ag_Au_Pd_Pt_Ru_RT_photo_0010268=os.path.join(Ag_Au_Pd_Pt_Ru_RT_0010268 , "0010268_Ag-Au-Pd-Pt-Ru_on_15nm_Ta_photo.jpg")
-
-Ag_Au_Pd_Pt_Rh_RT_0010269=os.path.join(RESISTANCE_RAW, "0010269")
-Ag_Au_Pd_Pt_Rh_RT_photo_0010269=os.path.join(Ag_Au_Pd_Pt_Rh_RT_0010269 , "0010269_Ag-Au-Pd-Pt-Rh_on_15nm_Ta_photo.jpg")
-
 Ir_Pd_Pt_Rh_Ru_0010374=os.path.join(RESISTANCE_RAW, "0010374")
 Ir_Pd_Pt_Rh_Ru_photo_0010374=os.path.join(Ir_Pd_Pt_Rh_Ru_0010374 , "Photo_0010374_Ir-Pd-Pt-Rh-Ru_as_depo.jpg")
 
@@ -56,8 +47,6 @@ Au_Cu_Pd_Pt_photo_0010399=os.path.join(Au_Cu_Pd_Pt_0010399 , "Photo_0010399_Au-C
 DATA_CLEAN_InIT_CHOICES = os.path.join(DATA_CLEAN_PATH, "init_choices")
 
 RESISTANCE_CLEANED_FILES = os.path.join(DATA_CLEAN_PATH, "resistance_cleaned_files")
-DATASET_10269_Ag_Au_Pd_Pt_Rh_RT= os.path.join(RESISTANCE_CLEANED_FILES, "10269_Ag-Au-Pd-Pt-Rh_RT.csv")
-DATASET_10271_Ag_Au_RT= os.path.join(RESISTANCE_CLEANED_FILES, "10271_Ag-Au_RT.csv")
 DATASET_10272_Ag_Au_Pd_RT= os.path.join(RESISTANCE_CLEANED_FILES, "10272_Ag-Au-Pd_RT.csv")
 DATASET_10275_Ag_Au_Pd_Pt_Rh_RT= os.path.join(RESISTANCE_CLEANED_FILES, "10275_Ag-Au-Pd-Pt-Rh_RT.csv")
 DATASET_10304_Au_Pd_Pt_Rh_RT= os.path.join(RESISTANCE_CLEANED_FILES, "10304_Au-Pd-Pt-Rh_RT.csv")
@@ -74,17 +63,11 @@ MiX_SELECTION_ANALYSIS = os.path.join(DATA_RESULTS_PATH , "mix_selection_analysi
 
 UNCERTAINTY_PATH = os.path.join(DATA_RESULTS_PATH, "Uncertainty")
 
-Results_10271 = os.path.join(UNCERTAINTY_PATH, "10271_results")
-MAE_PRIORS_10271 = os.path.join(Results_10271, "mae_priors_results.csv")
-
 Results_10272 = os.path.join(UNCERTAINTY_PATH, "10272_results")
 MAE_PRIORS_10272 = os.path.join(Results_10272, "mae_priors_results.csv")
 
 Results_10275 = os.path.join(UNCERTAINTY_PATH, "10275_results")
 MAE_PRIORS_10275 = os.path.join(Results_10275, "mae_priors_results.csv")
-
-Results_10269 = os.path.join(UNCERTAINTY_PATH, "10269_results")
-MAE_PRIORS_10269 = os.path.join(Results_10269, "mae_priors_results.csv")
 
 Results_10304 = os.path.join(UNCERTAINTY_PATH, "10304_results")
 MAE_PRIORS_10304 = os.path.join(Results_10304, "mae_priors_results.csv")
