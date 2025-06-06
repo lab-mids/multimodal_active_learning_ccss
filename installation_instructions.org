@@ -1,0 +1,18 @@
+* Installation and running instructions
+
+** Create conda environment
+conda create --name multimodal_ccss python=3.11
+
+conda activate multimodal_ccss
+
+libraries:
+
+conda install -c conda-forge jupyterlab
+
+conda install pandas
+
+conda install conda-forge::gpy
+
+conda install conda-forge::scikit-learn
+
+conda install conda-forge::pydoe2
