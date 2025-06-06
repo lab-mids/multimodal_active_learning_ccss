@@ -6,6 +6,38 @@ This work addresses the cold-start problem in active learning (AL) for experimen
 ##### This is a workflow overview for running the code and getting the paper results.
 ![Workflow Overview](readme.png)
 
+##  Installation
+
+To set up the environment for this project, follow these steps:
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/lab-mids/multimodal_active_learning_ccss.git
+cd multimodal_active_learning_ccss
+```
+### 2. Create the Conda Environment
+This project uses a Conda environment defined in environment.yml. You can create it using:
+```bash
+conda env create -f environment.yml
+```
+### 3. Activate the Environment
+```bash
+conda activate multimodal_ccss
+```
+### Environment
+ - python=3.11
+  - jupyterlab=4.0.9
+  - pandas=2.2.1
+  - numpy=1.26.4
+  - matplotlib=3.8.4
+  - seaborn=0.13.2
+  - scikit-learn=1.4.2
+  - gpy=1.10.0
+  - pydoe2=1.3.0
+  - scipy=1.13.0
+  - opencv=4.8.1
+  - pip
 
 ## Raw Data Description (under data/)
 
