@@ -39,8 +39,7 @@ conda activate multimodal_ccss
   - opencv=4.8.1
   - pip
 
-## Raw Data Description (under data/)
-
+## Raw Data Description (under data/) This original data is available upon request
 ###  `resistance_raw` 
 it is a folder has subfolders for each materials library used in the study and in inside the subfolders are:
 #### 1. `Resistance` Data
@@ -72,7 +71,8 @@ it is a folder has subfolders for each materials library used in the study and i
 ---
 Beside the subfolders for each materials library, there are the EDX_min_max_summary, which has the index of the measurement points of the wafer for the maximum and minimum compositions, Top5_Similarity_Summary which has the top 5 similarity indices for each material library; and the centroids_mapped_with_indices, which has the centroids resulting from clustering the photographs of the wafer for each materials library.
 
-## clean Data Description (under data/)
+## clean Data Description (under data/) This original data is available upon request
+
 ###  `resistance_cleaned_files` folder has all the cleaned resistance files for all the materials libraries. 
 - **Format**: CSV file
 - **Contents**:
