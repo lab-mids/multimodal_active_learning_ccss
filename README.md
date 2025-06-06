@@ -25,6 +25,19 @@ conda env create -f environment.yml
 ```bash
 conda activate multimodal_ccss
 ```
+### Environment
+ - python=3.11
+  - jupyterlab=4.0.9
+  - pandas=2.2.1
+  - numpy=1.26.4
+  - matplotlib=3.8.4
+  - seaborn=0.13.2
+  - scikit-learn=1.4.2
+  - gpy=1.10.0
+  - pydoe2=1.3.0
+  - scipy=1.13.0
+  - opencv=4.8.1
+  - pip
 
 ## Raw Data Description (under data/)
 
