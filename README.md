@@ -6,7 +6,7 @@ This work addresses the cold-start problem in active learning (AL) for experimen
 ##### This is a workflow overview for running the code and getting the paper results.
 ![Workflow Overview](readme.png)
 
-## 🛠️ Installation
+##  Installation
 
 To set up the environment for this project, follow these steps:
 
